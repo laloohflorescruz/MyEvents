@@ -6,7 +6,11 @@ import { EventListModule } from './event-list/event-list.module';
 import { EventListComponent } from './event-list/event-list/event-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail/event-thumbnail.component';
 import { NavbarComponent } from './navbar/navbar.component';
- 
+import { EventService } from './event-list/shared/event.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationService } from './event-list/shared/notification.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,9 +19,12 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,  
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),   
+
    ],
-  providers: [],
+  providers: [EventService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
