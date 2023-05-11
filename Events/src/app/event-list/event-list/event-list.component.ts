@@ -6,23 +6,15 @@ import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'app-event-list',
-  template: `<div>
-  <h1>Upcoming Event</h1>
-  <hr>
-  <div class="row">
-  <div *ngFor="let event of events" class="col-md-5">
-  <app-event-thumbnail (click)="handleThumbnailClick(event.name)"
-  [event]="event"></app-event-thumbnail>
-  </div>
-  </div>
-  `
+  templateUrl: './event-list.component.html',
+  styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
   events: any[] | undefined
 
   constructor(private eventService: EventService,
     private toastr: ToastrService,
-    private not : NotificationService
+    private not: NotificationService
   ) {
 
   }
@@ -31,13 +23,7 @@ export class EventListComponent implements OnInit {
     this.events = this.eventService.getEvents();
   }
 
- 
   handleThumbnailClick(eventName: any) {
-    this.toastr.success(eventName)
-
+    this.not.success(eventName)
   }
-  
-  // showSuccess(message, title){
-  //   this.toastr.success(message, title)
-  // }
 }
