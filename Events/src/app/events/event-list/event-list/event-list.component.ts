@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../shared/event.service';
+import { EventService } from '../../shared/event.service';
 import { ToastrService } from 'ngx-toastr';
-import { NotificationService } from '../shared/notification.service';
+import { NotificationService } from '../../shared/notification.service';
+import { IEvent } from '../../shared';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { NotificationService } from '../shared/notification.service';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
-  events: any[] | undefined
+  events: IEvent[] | undefined
 
   constructor(private eventService: EventService,
     private toastr: ToastrService,

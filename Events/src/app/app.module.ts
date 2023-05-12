@@ -6,15 +6,19 @@ import {
   CreateEventComponent,
   EventDetailsComponent
 } from './events/index'
+
+import {
+  EventService,
+  NotificationService
+} from './events/shared/index'
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './errors/404.component';
-import { EventService } from './events/event-list/shared/event.service';
-import { NotificationService } from './events/event-list/shared/notification.service';
-
+ 
 const routes: Routes = [
 
   { path: 'events/new', component: CreateEventComponent },
