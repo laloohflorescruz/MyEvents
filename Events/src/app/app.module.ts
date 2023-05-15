@@ -4,7 +4,9 @@ import {
   EventListComponent,
   EventThumbnailComponent,
   CreateEventComponent,
-  EventDetailsComponent
+  EventDetailsComponent,
+  CreateSessionComponent,
+  
 } from './events/index'
 
 import {
@@ -18,12 +20,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './errors/404.component';
- 
+import { AuthService } from './user/login/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SessionListComponent } from './events/event-details/session-list/session-list.component';
+  
 const routes: Routes = [
 
   { path: 'events/new', component: CreateEventComponent },
   { path: 'events', component: EventListComponent },
   { path: 'events/:id', component: EventDetailsComponent },
+  { path: 'events/session/new', component: CreateSessionComponent  },
   { path: '404', component: Error404Component },
   { path: '', redirectTo: '/events', pathMatch: 'full' },
   {
@@ -43,17 +49,22 @@ const routes: Routes = [
     EventDetailsComponent,
     CreateEventComponent,
     Error404Component,
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [
     EventService,
     NotificationService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
