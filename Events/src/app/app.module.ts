@@ -23,6 +23,8 @@ import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/login/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
+import { DurationPipe } from './events/shared/duration.pipe';
   
 const routes: Routes = [
 
@@ -50,7 +52,9 @@ const routes: Routes = [
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,

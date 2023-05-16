@@ -9,31 +9,28 @@ export class EventService {
 
   getEvents() {
     return EVENTS
-}
+  }
 
-  getEvent(id: number)
-  {
-    return EVENTS.find(e =>e.id === id)
+  getEvent(id: number) {
+    return EVENTS.find(e => e.id === id)
   }
 
   saveEvent(event: IEvent) {
-    event.id=9655
-    event.sessions =[]
+    event.id = 9655
+    event.sessions = []
     EVENTS.push(event)
 
   }
 
   updateEvent(event: IEvent) {
-    let index = EVENTS.findIndex(x =>x.id = event.id)
+    let index = EVENTS.findIndex(x => x.id = event.id)
     EVENTS[index] = event
-  
-  }
 
-  
+  }
 }
 
 
-const EVENTS : IEvent[]= [
+const EVENTS: IEvent[] = [
   {
     id: 1,
     name: 'Angular Connect',
@@ -119,7 +116,7 @@ const EVENTS : IEvent[]= [
     time: '9:00 am',
     price: 950.00,
     imageUrl: '/app/assets/images/ng-nl.png',
-    onlineUrl:'http://abc.com',
+    onlineUrl: 'http://abc.com',
     location: {
       address: 'The Palatial America Hotel',
       city: 'Salt Lake City',
