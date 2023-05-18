@@ -28,17 +28,32 @@
     <div class="col-md-2">
       <h3 style="margin: 0;">Sessions</h3>
     </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="btn-group btn-group-sm">
+          <div class="btn-group btn-group-sm" style="margin-right: 15px;">
+            <button class="btn btn-default" [class.active]="sortBy==='name'" (click)="sortBy='name'">By name</button>
+            <button class="btn btn-default" [class.active]="sortBy==='votes'" (click)="sortBy='votes'">By votes</button>
+          </div>
+
+          <button class="btn btn-default" [class.active]="filterBy==='all'" (click)="filterBy='all'">All</button>
+          <button class="btn btn-default" [class.active]="filterBy==='beginner'"
+            (click)="filterBy='beginner'">Begginer</button>
+          <button class="btn btn-default" [class.active]="filterBy==='intermediate'"
+            (click)="filterBy='intermediate'">Intermediate</button>
+          <button class="btn btn-default" [class.active]="filterBy==='advanced'"
+            (click)="filterBy='advanced'">Advanced</button>
+        </div>
+      </div>
+    </div>
 
     <div class="col-md-2">
       <a (click)="addSession()">Add Session</a>
     </div>
   </div>
   <!-- <session-list [sessions]="event?.sessions"></session-list> -->
-    <app-session-list *ngIf="!addMode" [sessions]="event?.sessions"></app-session-list> 
-    <app-create-session *ngIf="addMode" 
-    (saveNewSession)="saveNewSession($event)"
+  <app-session-list [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></app-session-list>
+  <app-create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)"
     (cancelAddSession)="cancelAddSession()"></app-create-session>
 
 </div>
-
- 
