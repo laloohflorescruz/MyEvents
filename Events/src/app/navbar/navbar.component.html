@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a [routerLink]="['/events']" routerLinkActive="active" 
-          [routerLinkActiveOptions]="{exact:true}">All Events</a>
+          <a [routerLink]="['/events']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">All
+            Events</a>
         </li>
-        <li><a [routerLink]="['/events/new']" routerLinkActive="active" >Create Event</a></li>
+        <li><a [routerLink]="['/events/new']" routerLinkActive="active">Create Event</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Events
@@ -26,20 +26,56 @@
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a *ngIf="!authService.isAuthenticated()" [routerLink]="['user/login']">Login!</a> 
+            <a *ngIf="!authService.isAuthenticated()" [routerLink]="['user/login']">Login!</a>
             <a *ngIf="authService.isAuthenticated()" [routerLink]="['user/profile']">Welcome </a>
             <!-- <a *ngIf="authService.isAuthenticated()" [routerLink]="['user/profile']">Welcome {{authService.currentUser.lastName}}</a> -->
-           </li>
+          </li>
         </ul>
       </div>
-      <form id="searchForm" class="navbar-form navbar-right">
+      <form id="searchForm" (ngSubmit)="searchSessions(searchTerm)" class="navbar-form navbar-right">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Sessions">
+          <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control"
+            placeholder="Search Sessions">
         </div>
-        <button class="btn btn-default">
-          Search
+        <!-- <button class="btn btn-default" modal-trigger="searchResult"> -->
+          <button class="btn btn-default" modal-trigger="searchResult">
+            Search
         </button>
       </form>
     </div>
   </div>
 </div>
+ 
+<!-- <simple-modal title="Matching Sessions">
+  <div class="list-group">
+    <a class="list-group-item" *ngFor="let session of foundSessions" [routerLink]="['/events', session.eventId]">
+      {{session.name}}
+    </a>
+  </div>
+</simple-modal> -->
+ 
+
+
+<div class="modal fade" id="exampleModal" elementId="searchResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Matching Session</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="list-group">
+          <a class="list-group-item" *ngFor="let session of foundSessions" [routerLink]="['/events', session.id]">
+            {{session.name}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

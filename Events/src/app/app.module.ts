@@ -25,7 +25,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pipe';
-  
+import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
+import { JQ_TOKEN, JQueryService } from './common/jQuery.service';   
+
 const routes: Routes = [
 
   { path: 'events/new', component: CreateEventComponent },
@@ -42,6 +44,10 @@ const routes: Routes = [
 ];
 
 
+//let jQuery = window['$'];
+ 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,8 +60,10 @@ const routes: Routes = [
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
+    DurationPipe,
+    SimpleModalComponent,
     DurationPipe
-  ],
+   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -68,8 +76,8 @@ const routes: Routes = [
   providers: [
     EventService,
     NotificationService,
-    AuthService
-  ],
+    AuthService,
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

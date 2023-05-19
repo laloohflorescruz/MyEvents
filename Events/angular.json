@@ -35,7 +35,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
              ],
             "scripts": [
-              "./node_modules/toastr/build/toastr.min.js"
+               "./node_modules/toastr/build/toastr.min.js"
             ]
           },
           "configurations": {

@@ -8,8 +8,8 @@ import { ISession } from '../../shared';
 })
 export class SessionListComponent implements OnChanges  {
   @Input() sessions:ISession[] | undefined;
-  @Input() filterBy!: string ;
-  @Input() sortBy!: string ;
+  @Input() filterBy!: string;
+  @Input() sortBy!: string;
   visibleSessions: ISession[] = [];
 
  
@@ -18,7 +18,6 @@ export class SessionListComponent implements OnChanges  {
     if (this.sessions) {
       this.filterSessions(this.filterBy);
       this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc) : this.visibleSessions.sort(sortByVotesDesc);
-
     }
   }
 
@@ -32,7 +31,6 @@ export class SessionListComponent implements OnChanges  {
     } 
   }
 }
-
 
 function sortByNameAsc(s1: ISession, s2: ISession) {
   if (s1.name > s2.name) return 1
