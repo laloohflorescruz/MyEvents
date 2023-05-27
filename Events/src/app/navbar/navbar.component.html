@@ -38,7 +38,7 @@
             placeholder="Search Sessions">
         </div>
         <!-- <button class="btn btn-default" modal-trigger="searchResult"> -->
-          <button class="btn btn-default" modal-trigger="searchResult">
+          <button class="btn btn-default">
             Search
         </button>
       </form>
@@ -54,7 +54,7 @@
   </div>
 </simple-modal> -->
  
-
+<!-- 
 
 <div class="modal fade" id="exampleModal" elementId="searchResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -72,10 +72,21 @@
             {{session.name}}
           </a>
         </div>
-      </div>
+      </div> 
+         <div class="list-group">
+          <a class="list-group-item" *ngFor="let session of foundSessions" [routerLink]="['/events', session.id]">
+            {{session.name}}
+          </a>
+       </div>
     </div>
   </div>
-</div>
+</div> -->
 
+
+<div class="list-group">
+  <a class="list-group-item" *ngFor="let session of foundSessions" [routerLink]="['/events', session.id]">
+    {{session.name}}
+  </a>
+</div>
 
 

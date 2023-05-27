@@ -16,6 +16,7 @@ import {
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UpvoteComponent } from './events/event-details/upvote/upvote.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -27,6 +28,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-
 import { DurationPipe } from './events/shared/duration.pipe';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 import { JQ_TOKEN, JQueryService } from './common/jQuery.service';   
+import { VoterService } from './events/event-details/upvote/voter.service';
 
 const routes: Routes = [
 
@@ -62,7 +64,9 @@ const routes: Routes = [
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    DurationPipe
+    DurationPipe,
+    UpvoteComponent
+    
    ],
   imports: [
     BrowserModule,
@@ -77,6 +81,7 @@ const routes: Routes = [
     EventService,
     NotificationService,
     AuthService,
+    VoterService
    ],
   bootstrap: [AppComponent]
 })
