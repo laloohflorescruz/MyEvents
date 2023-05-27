@@ -6,18 +6,24 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./upvote.component.css']
 })
 export class UpvoteComponent implements OnInit {
-  @Input() count: number | undefined;
-  @Input() voted: boolean | undefined;
+  @Input() count: number = 0;
+  @Input() voted: boolean = false;
   @Output() vote = new EventEmitter();
 
 
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
   onClick() {
-    this.vote.emit({});
+    if (!this.voted) {
+       this.count++;
+      this.voted = true;
+    } else {
+       this.count--;
+      this.voted = false;
+    }
   }
 }

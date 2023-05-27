@@ -18,5 +18,7 @@ export class VoterService {
     session.voters.push(voterName);
   }
 
-
+  userHasVoted(session: ISession, voterName: string) {
+    return session.voters.some(voter => voter === voterName);
+  }
 }
