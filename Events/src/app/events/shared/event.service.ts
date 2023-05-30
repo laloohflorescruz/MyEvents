@@ -1,12 +1,17 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { IEvent, ISession } from './event.model';
+import { HttpClient } from '@angular/common/http';
  
 @Injectable({
   providedIn: 'root'
 })
 
-export class EventService {
 
+export class EventService {
+  constructor(private http: HttpClient) {
+  
+  }
+  
   getEvents() {
     return EVENTS
   }

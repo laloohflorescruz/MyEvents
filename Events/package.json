@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
+    "test": "ng test",
+    "server": "node node_modules/ngf-server/server.js"
+   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.1",
@@ -20,6 +21,7 @@
     "@angular/router": "^16.0.0",
     "bootstrap": "^3.4.1",
     "jquery": "^3.7.0",
+    "ngf-server": "^1.0.3",
     "ngx-toastr": "^16.2.0",
     "rxjs": "~7.8.0",
     "toastr": "^2.1.4",

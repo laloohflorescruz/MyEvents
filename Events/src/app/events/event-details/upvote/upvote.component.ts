@@ -19,10 +19,10 @@ export class UpvoteComponent implements OnInit {
 
   onClick() {
     if (!this.voted) {
-       this.count++;
+      this.count++;
       this.voted = true;
     } else {
-       this.count--;
+      this.count--;
       this.voted = false;
     }
   }
