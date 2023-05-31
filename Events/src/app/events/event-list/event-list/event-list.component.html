@@ -2,7 +2,7 @@
     <h1>Upcoming Event</h1>
     <hr>
     <div class="row">
-        <div *ngFor="let event of events" class="col-md-5">
+        <div *ngFor="let event of events | async" class="col-md-5">
             <app-event-thumbnail   [event]="event"></app-event-thumbnail>
         </div>
     </div>

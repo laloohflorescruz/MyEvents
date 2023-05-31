@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { IEvent, ISession } from './event.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable, catchError, of } from 'rxjs';
  
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,17 @@ export class EventService {
   
   }
   
-  getEvents() {
-    return EVENTS
+  getEvents(): Observable<IEvent[]> {
+    return this.http.get<IEvent[]>('api/events')
+    .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])))
+  }
+
+
+  private handleError<T> (operation = 'operation', results?: T) {
+    return (error: any) : Observable<T> => {
+      console.log(error);
+      return of (results as T);
+    }
   }
 
   getEvent(id: number) {
