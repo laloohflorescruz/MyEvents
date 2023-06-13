@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './login/auth.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '../events/shared';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -38,5 +39,10 @@ export class ProfileComponent implements OnInit {
       this.toast.success('Profile Saved!')
       //this.router.navigate(['events'])
     }
+  }
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/user/login']);
+    })
   }
 }
