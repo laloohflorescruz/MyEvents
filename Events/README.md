@@ -4,7 +4,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run first `npm run server`. this gonna create a call  on port 8808... (Listening on port 8808...)
+
+and the next tab (other tab) run `npm start`
+ 
+ You can change the setting on proxy.conf.json file:
+{
+  "/api": {
+    "target": "http://localhost:8808",
+    "secure": false,
+    "changeOrigin": true,
+     "logLevel": "debug"
+  }
+}
+
 
 ## Code scaffolding
 
